@@ -132,7 +132,10 @@
   <ItemGroup>
     <ClInclude Include="vec3.h" />
     <ClInclude Include="color.h" />
-    <ClInclude Include="标头.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="hittable.h" />
+    <ClInclude Include="sphere.h" />
+    <ClInclude Include="hittable_list.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
