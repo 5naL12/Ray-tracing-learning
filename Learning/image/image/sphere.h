@@ -9,10 +9,9 @@ class sphere :public hittable
 public:
 	point3 center;
 	double radius;
-	shared_ptr<material> mat_ptr;
 public:
 	sphere() {}
-	sphere(point3 cen, double r,shared_ptr<material>m) :center(cen), radius(r),mat_ptr(m) {}
+	sphere(point3 cen, double r) :center(cen), radius(r) {}
 
 	virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec)const override;
 };
@@ -34,7 +33,6 @@ bool sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec)const
 			rec.p = r.at(t);
 			vec3 outward_noraml = (rec.p - center) / radius;
 			rec.set_face_noraml(r, outward_noraml);
-			rec.mat_ptr = mat_ptr;
 			return true;
 		}
 		t = (-half_b + root) / a;
@@ -44,7 +42,6 @@ bool sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec)const
 			rec.p = r.at(t);
 			vec3 outward_noraml = (rec.p - center) / radius;
 			rec.set_face_noraml(r, outward_noraml);
-			rec.mat_ptr = mat_ptr;
 			return true;
 		}
 	}

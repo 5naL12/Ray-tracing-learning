@@ -2,15 +2,11 @@
 #define HITTABLE_H
 
 #include"ray.h"
-#include"rtweekend.h"
-
-class material;
 
 struct hit_record
 {
 	point3 p;//交点
 	vec3 normal;//法向量
-	shared_ptr<material> mat_ptr;
 	double t;//距离
 	bool front_face;
 
