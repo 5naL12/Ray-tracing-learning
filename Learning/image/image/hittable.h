@@ -2,11 +2,15 @@
 #define HITTABLE_H
 
 #include"ray.h"
+#include "rtweekend.h"
+
+class material;
 
 struct hit_record
 {
 	point3 p;//交点
 	vec3 normal;//法向量
+	shared_ptr<material> mat_ptr;
 	double t;//距离
 	bool front_face;
 
@@ -22,5 +26,7 @@ class hittable
 public:
 	virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const = 0;
 };
+
+
 
 #endif
