@@ -108,21 +108,23 @@ inline vec3 operator /(const vec3& v, double t)
 //ÊýÁ¿»ý
 inline double dot(const vec3& u, const vec3& v)
 {
-	return u.e[0] * v.e[0] + u.e[1] * v.e[1] + u.e[2] * v.e[2];
+    return u.e[0] * v.e[0]
+         + u.e[1] * v.e[1]
+         + u.e[2] * v.e[2];
 }
 //²æ³Ë
 inline vec3 cross(const vec3& u, const vec3& v)
 {
 	return vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
-		u.e[2] * v.e[0] - u.e[0] * v.e[2],
-		u.e[0] * v.e[1] - u.e[1] * v.e[0]);
+		        u.e[2] * v.e[0] - u.e[0] * v.e[2],
+		        u.e[0] * v.e[1] - u.e[1] * v.e[0]);
 }
 inline vec3 unit_vector(const vec3& v)
 {
 	return v / v.length();
 }
 
-vec3 random_in_unit_sphere()
+inline vec3 random_in_unit_sphere()
 {
     while (true)
     {
@@ -132,12 +134,12 @@ vec3 random_in_unit_sphere()
     }
 }
 
-vec3 random_unit_vector()
+inline vec3 random_unit_vector()
 {
     return unit_vector(random_in_unit_sphere());
 }
 
-vec3 random_in_hemisphere(const vec3& normal)
+inline vec3 random_in_hemisphere(const vec3& normal)
 {
     vec3 in_unit_sphere = random_in_unit_sphere();
     if (dot(in_unit_sphere, normal) > 0.0) // In the same hemisphere as the normal
@@ -146,12 +148,12 @@ vec3 random_in_hemisphere(const vec3& normal)
         return -in_unit_sphere;
 }
 
-vec3 reflect(const vec3& v, const vec3& n)
+inline vec3 reflect(const vec3& v, const vec3& n)
 {
     return v - 2 * dot(v, n) * n;
 }
 
-vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat)
+inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat)
 {
     auto cos_theta = fmin(dot(-uv, n), 1.0);
     vec3 r_out_perp = etai_over_etat * (uv + cos_theta * n);
