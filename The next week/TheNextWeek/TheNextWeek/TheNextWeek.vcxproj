@@ -150,6 +150,9 @@
     <ClInclude Include="texture.h" />
     <ClInclude Include="perlin.h" />
     <ClInclude Include="rtw_stb_image.h" />
+    <ClInclude Include="aarec.h" />
+    <ClInclude Include="box.h" />
+    <ClInclude Include="constant_medium.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
