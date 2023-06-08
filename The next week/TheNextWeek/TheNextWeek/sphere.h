@@ -48,7 +48,7 @@ bool sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec)const
 			rec.t = t;
 			rec.p = r.at(t);
 			vec3 outward_noraml = (rec.p - center) / radius;
-			rec.set_face_noraml(r, outward_noraml);
+			rec.set_face_normal(r, outward_noraml);
 			get_sphere_uv(outward_noraml, rec.u, rec.v);
 			rec.mat_ptr = mat_ptr;
 			return true;
@@ -59,7 +59,7 @@ bool sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec)const
 			rec.t = t;
 			rec.p = r.at(t);
 			vec3 outward_noraml = (rec.p - center) / radius;
-			rec.set_face_noraml(r, outward_noraml);
+			rec.set_face_normal(r, outward_noraml);
 			get_sphere_uv(outward_noraml, rec.u, rec.v);
 			rec.mat_ptr = mat_ptr;
 			return true;
